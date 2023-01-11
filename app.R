@@ -1,7 +1,9 @@
 library(shiny)
+animals <- c("dog", "cat", "mouse", "bird", "other", "I hate animals")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+  
     # Application title
     titlePanel("Shiny UI elements"),
     
@@ -17,7 +19,11 @@ ui <- fluidPage(
     
     # Date inputs
     dateInput("dob", "When were you born?"),
-    dateRangeInput("holiday", "When do you want to go on vacation next?")
+    dateRangeInput("holiday", "When do you want to go on vacation next?"),
+    
+    # User choice from pre-specified options
+    selectInput("state", "What's your favourite state?", state.name),
+    radioButtons("animal", "What's your favourite animal?", animals)
 )
 
 # Define server logic required to draw a histogram
