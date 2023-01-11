@@ -22,8 +22,15 @@ ui <- fluidPage(
     dateRangeInput("holiday", "When do you want to go on vacation next?"),
     
     # User choice from pre-specified options
-    selectInput("state", "What's your favourite state?", state.name),
-    radioButtons("animal", "What's your favourite animal?", animals)
+    selectInput("state", "What's your favourite state?", state.name, multiple = TRUE),
+    radioButtons("animal", "What's your favourite animal?", animals),
+    
+    # File upload
+    fileInput("upload", NULL),
+    
+    # Action button and link
+    actionButton("click", "Click me!"),
+    actionButton("drink", "Drink me!", icon = icon("cocktail"))
 )
 
 # Define server logic required to draw a histogram
